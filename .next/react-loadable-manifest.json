@@ -1,0 +1,9 @@
+{
+  "..\\..\\node_modules\\next-sanity\\dist\\next-sanity.esm.js -> @sanity/groq-store": {
+    "id": 4820,
+    "files": [
+      "static/chunks/68120821.43f76952d4173058.js",
+      "static/chunks/743.b57444b81a8a2525.js"
+    ]
+  }
+}

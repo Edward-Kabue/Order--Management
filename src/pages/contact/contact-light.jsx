@@ -1,13 +1,13 @@
-import React from "react";
-import ContactHeader from "../../components/Contact-header";
-import ContactWithMap from "../../components/Contact-with-map";
-import Navbar from "../../components/Navbar";
-import LightTheme from "../../layouts/Light";
+import React from 'react';
+import ContactHeader from '../../components/Contact-header';
+import ContactWithMap from '../../components/Contact-with-map';
+import Navbar from '../../components/Navbar';
+import LightTheme from '../../layouts/Light';
 
 const Contact = () => {
   const fixedHeader = React.useRef(null);
-    const MainContent = React.useRef(null);
-    const navbarRef = React.useRef(null);
+  const MainContent = React.useRef(null);
+  const navbarRef = React.useRef(null);
   React.useEffect(() => {
     document.querySelector('body').classList.add('menubarblack');
     setInterval(() => {
@@ -15,28 +15,28 @@ const Contact = () => {
         var slidHeight = fixedHeader.current.offsetHeight;
       }
       if (MainContent.current) {
-        MainContent.current.style.marginTop = slidHeight + "px";
+        MainContent.current.style.marginTop = slidHeight + 'px';
       }
     }, 1000);
     var navbar = navbarRef.current;
     if (window.pageYOffset > 300) {
-      navbar.classList.add("nav-scroll");
+      navbar.classList.add('nav-scroll');
     } else {
-      navbar.classList.remove("nav-scroll");
+      navbar.classList.remove('nav-scroll');
     }
-    window.addEventListener("scroll", () => {
+    window.addEventListener('scroll', () => {
       if (window.pageYOffset > 300) {
-        navbar.classList.add("nav-scroll");
+        navbar.classList.add('nav-scroll');
       } else {
-        navbar.classList.remove("nav-scroll");
+        navbar.classList.remove('nav-scroll');
       }
     });
   }, []);
   return (
     <LightTheme>
-      <Navbar nr={navbarRef} theme="themeL" />
+      <Navbar nr={navbarRef} theme='themeL' />
       <ContactHeader sliderRef={fixedHeader} />
-      <div className="main-content" ref={MainContent}>
+      <div className='main-content' ref={MainContent}>
         <ContactWithMap />
       </div>
     </LightTheme>

@@ -102,18 +102,18 @@ const ContactWithMap = () => {
                 </h3>
                 <div className='item mb-40'>
                   <h5>
-                    <a href='#0'>Email@example.com</a>
+                    <a href='#0'>contact@dimetechgroup.com</a>
                   </h5>
-                  <h5>+4.930.705.5448</h5>
+                  <h5>020 2008807 / 0714254750</h5>
                 </div>
                 <h3 className='custom-font wow' data-splitting>
                   Visit Us.
                 </h3>
                 <div className='item'>
                   <h6>
-                    295 Witting Streets Suite 666,
+                    Banda Lane 92, Karen
                     <br />
-                    Melbourne, Australia
+                    Nairobi, Kenya
                   </h6>
                 </div>
                 <div className='social mt-50'>
@@ -137,10 +137,12 @@ const ContactWithMap = () => {
       </section>
       <div className='map' id='ieatmaps'>
         <iframe
-          src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19868.687203718404!2d-0.14297520856388865!3d51.502466162777694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2seg!4v1644772966009!5m2!1sen!2seg'
-          style={{ border: 0 }}
-          allowFullScreen=''
+          src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.6820481512027!2d36.75641981544951!3d-1.3674534990026654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1732a072adb5%3A0x64b65786594e68da!2sDimetech%20Group!5e0!3m2!1sen!2ske!4v1663230696667!5m2!1sen!2ske'
+          width='600'
+          height='450'
+          allowfullscreen=''
           loading='lazy'
+          referrerPolicy='no-referrer-when-downgrade'
         ></iframe>
       </div>
 

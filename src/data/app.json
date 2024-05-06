@@ -1,5 +1,5 @@
 {
-    "lightLogo": "/img/logo-light.png",
-    "darkLogo": "/img/logo-dark.png",
-    "showLoading": true
+  "lightLogo": "/img/logo-light.png",
+  "Logo": "/img/logo-light.png",
+  "showLoading": true
 }

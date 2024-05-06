@@ -1,0 +1,52 @@
+
+   [
+   {
+        "id": 1,
+        "image": "/img/portfolio/mas/01.jpg",
+        "title": "Social Media Management",
+        "description": "",   
+        "Link": "/it-infrastracture"
+    },
+    {
+        "id": 2,
+        "image": "/img/portfolio/mas/02.jpg",
+        "title": "Social media advertising",
+        "description": "",   
+        "Link": "/web-hosting"
+    },
+    {
+        "id": 3,
+        "image": "/img/portfolio/mas/03.jpg",
+        "title": "Social media audit",
+        "description": "",   
+        "Link": "/web-development"
+    },
+    {
+        "id": 4,
+        "image": "/img/portfolio/mas/04.jpg",
+        "title": "Lead generation",
+        "description": "",   
+        "Link": "/ecommerce-solutions"
+    },
+    {
+        "id": 5,
+        "image": "/img/portfolio/mas/05.jpg",
+        "title": "Data analytics & insights",
+        "description": "",   
+        "Link": "/crm"
+    },
+    {
+        "id": 6,
+        "image": "/img/portfolio/mas/06.jpg",
+        "title": "User experience analysis",
+        "description": "",   
+        "Link": "/mobile-apps"
+    },
+    {
+        "id": 7,
+        "image": "/img/portfolio/mas/01.jpg",
+        "title": "Prototyping",
+        "description": "",   
+        "Link": "/mobile-apps"
+    }
+]

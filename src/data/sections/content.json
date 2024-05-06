@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "title": "Content Creation and Management",
+      "icon": "/img/content.png",
+      
+      "Link": "/content-creation"
+    },
+    {
+      "id": 2,
+      "title": "Videography",
+      "icon": "/img/content.png",
+      "Link": "/videography"
+    },
+    {
+      "id": 3,
+      "title": "Graphics",
+      "icon": "/img/content.png",
+      "Link": "/graphics"
+    },
+    {
+        "id": 4,
+        "title": "Animations",
+        "icon": "/img/content.png",
+        "Link": "/animation"
+      },
+      {
+        "id": 5,
+        "title": "Live Streaming",
+        "icon": "/img/content.png",
+        "Link": "/live-streaming"
+      }
+  ]

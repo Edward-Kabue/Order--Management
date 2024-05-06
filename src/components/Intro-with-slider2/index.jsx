@@ -1,15 +1,15 @@
-import React from "react";
-import introData from "../../data/sections/intro2.json";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Link from "next/link";
-import SwiperCore, { Navigation, Pagination, Parallax, Autoplay } from "swiper";
+import React from 'react';
+import introData from '../../data/sections/intro2.json';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Link from 'next/link';
+import SwiperCore, { Navigation, Pagination, Parallax, Autoplay } from 'swiper';
 
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import Split from "../Split";
-import fadeWhenScroll from "../../common/fadeWhenScroll";
-import removeSlashFromPagination from "../../common/removeSlashFromPagination";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import Split from '../Split';
+import fadeWhenScroll from '../../common/fadeWhenScroll';
+import removeSlashFromPagination from '../../common/removeSlashFromPagination';
 
 SwiperCore.use([Navigation, Pagination, Parallax, Autoplay]);
 
@@ -28,8 +28,8 @@ const IntroWithSlider2 = () => {
   const paginationRef = React.useRef(null);
 
   return (
-    <header className="slider slider-prlx">
-      <div className="swiper-container parallax-slider">
+    <header className='slider slider-prlx'>
+      <div className='swiper-container parallax-slider'>
         {!load ? (
           <Swiper
             speed={1000}
@@ -40,7 +40,7 @@ const IntroWithSlider2 = () => {
               nextEl: navigationNextRef.current,
             }}
             pagination={{
-              type: "fraction",
+              type: 'fraction',
               clickable: true,
               el: paginationRef.current,
             }}
@@ -53,7 +53,7 @@ const IntroWithSlider2 = () => {
               setTimeout(() => {
                 for (var i = 0; i < swiper.slides.length; i++) {
                   swiper.slides[i].childNodes[0].setAttribute(
-                    "data-swiper-parallax",
+                    'data-swiper-parallax',
                     0.75 * swiper.width
                   );
                 }
@@ -72,26 +72,26 @@ const IntroWithSlider2 = () => {
                 swiper.pagination.update();
               });
             }}
-            className="swiper-wrapper"
+            className='swiper-wrapper'
             slidesPerView={1}
           >
             {introData.map((slide) => (
-              <SwiperSlide key={slide.id} className="swiper-slide">
+              <SwiperSlide key={slide.id} className='swiper-slide'>
                 <div
-                  className="bg-img valign"
+                  className='bg-img valign'
                   style={{ backgroundImage: `url(${slide.image})` }}
-                  data-overlay-dark="6"
+                  data-overlay-='6'
                 >
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-lg-12">
-                        <div className="caption dig">
+                  <div className='container'>
+                    <div className='row'>
+                      <div className='col-lg-12'>
+                        <div className='caption dig'>
                           <Split>
-                            <h1 className="words chars splitting">
-                              {typeof slide.title === "object" ? (
+                            <h1 className='words chars splitting'>
+                              {typeof slide.title === 'object' ? (
                                 <>
                                   {slide.title.first}
-                                  <div className="tline">
+                                  <div className='tline'>
                                     {slide.title.second}
                                   </div>
                                 </>
@@ -100,8 +100,8 @@ const IntroWithSlider2 = () => {
                               )}
                             </h1>
                           </Split>
-                          <Link href="/works2/works2-dark">
-                            <a className="simple-btn mt-50">
+                          <Link href='/works2/works2-'>
+                            <a className='simple-btn mt-50'>
                               <span>Discover Works</span>
                             </a>
                           </Link>
@@ -114,37 +114,37 @@ const IntroWithSlider2 = () => {
             ))}
           </Swiper>
         ) : null}
-        <div className="setone setwo">
+        <div className='setone setwo'>
           <div
             ref={navigationNextRef}
-            className="swiper-button-next swiper-nav-ctrl next-ctrl cursor-pointer"
+            className='swiper-button-next swiper-nav-ctrl next-ctrl cursor-pointer'
           >
-            <i className="fas fa-chevron-right"></i>
+            <i className='fas fa-chevron-right'></i>
           </div>
           <div
             ref={navigationPrevRef}
-            className="swiper-button-prev swiper-nav-ctrl prev-ctrl cursor-pointer"
+            className='swiper-button-prev swiper-nav-ctrl prev-ctrl cursor-pointer'
           >
-            <i className="fas fa-chevron-left"></i>
+            <i className='fas fa-chevron-left'></i>
           </div>
         </div>
         <div
           ref={paginationRef}
-          className="swiper-pagination top botm custom-font"
+          className='swiper-pagination top botm custom-font'
         ></div>
 
-        <div className="social-icon">
-          <a href="#0">
-            <i className="fab fa-facebook-f"></i>
+        <div className='social-icon'>
+          <a href='#0'>
+            <i className='fab fa-facebook-f'></i>
           </a>
-          <a href="#0">
-            <i className="fab fa-twitter"></i>
+          <a href='#0'>
+            <i className='fab fa-twitter'></i>
           </a>
-          <a href="#0">
-            <i className="fab fa-behance"></i>
+          <a href='#0'>
+            <i className='fab fa-behance'></i>
           </a>
-          <a href="#0">
-            <i className="fab fa-pinterest-p"></i>
+          <a href='#0'>
+            <i className='fab fa-pinterest-p'></i>
           </a>
         </div>
       </div>

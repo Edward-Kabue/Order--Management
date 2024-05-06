@@ -1,0 +1,46 @@
+
+
+[
+    {
+        "id": 1,
+        "image": "/img/portfolio/mas/01.jpg",
+        "title": "IT Infrastructure and Security consulting",
+        "description": "By using the right infrastructure, your business can increase productivity and reduce costs. We guide you in designing and implementing powerful infrastructures that best suit your requirements and business model. Our team of experts acompany you on the way to efficient digital transformation and increased cyber security. Talk to us and find out how we can help secure your data, systems and improve business processes with our IT infrastructure and IT security solutions consulting. ",
+        "Link": "/it-infrastracture"
+    },
+    {
+        "id": 2,
+        "image": "/img/portfolio/mas/02.jpg",
+        "title": "Web Hosting",
+        "description": "If you want cutting-edge technology, with the highest reliability and 24/7 support, Eupotech is your partner. We offer professional web and email hosting solutions with uptime and performance guarantee for your online success. See our Hosting plans",
+        "Link": "/web-hosting"
+    },
+    {
+        "id": 3,
+        "image": "/img/portfolio/mas/03.jpg",
+        "title": "Web Development",
+        "description": "Whether you are planning a Service, Corporate, Event, Personal, Blog or Non-profit website, we understand your users and use the latest technologies to ensure speed and simplicity now and into the future. Our experienced in-house design and dev team is focused on developing responsive, scalable, user friendly and intuitive applications that generate actual results. Each project has its own bespoke requirements. We work closely with you to discover and understand your needs and the needs of your users, and then we tailor a solution that works.  ",
+        "Link": "/web-development"
+    },
+    {
+        "id": 4,
+        "image": "/img/portfolio/mas/04.jpg",
+        "title": "E-commerce Solutions",
+        "description": "No hassle for your consumers is our number one priority! Good consumer engagement means high sales and brand loyalty.",
+        "Link": "/ecommerce-solutions"
+    },
+    {
+        "id": 5,
+        "image": "/img/portfolio/mas/05.jpg",
+        "title": "Customer Relationship Software(CRM)",
+        "description": "Our cloud-based CRM solution caters towards companies of all sizes – we developed a single platform intended to manage all aspects of sales, service, marketing, human resource, through area specific modules to meet specific business needs.",
+        "Link": "/crm"
+    },
+    {
+        "id": 6,
+        "image": "/img/portfolio/mas/06.jpg",
+        "title": "Mobile Apps",
+        "description": "Our mobile applications will reflect your vision and fulfil your business needs.",
+        "Link": "/mobile-apps"
+    }
+]

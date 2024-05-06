@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
-import Link from "next/link";
+import React from 'react'
+import Link from 'next/link'
 
-const BlogStanderd = () => {
+const BlogStanderd = ({ posts }) => {
   return (
     <section className="blog-pg section-padding pt-0">
       <div className="container">
@@ -11,7 +11,7 @@ const BlogStanderd = () => {
             <div className="posts">
               <div className="item mb-80">
                 <div className="img">
-                  <Link href="/blog-details/blog-details-dark">
+                  <Link href="/">
                     <a>
                       <img src="/img/blog/b1.jpg" alt="" />
                     </a>
@@ -27,10 +27,10 @@ const BlogStanderd = () => {
                       <div className="tags">
                         <a href="#0">WordPress</a>
                         <a href="#0">Themeforest</a>
-                        <a href="#0">Avo</a>
+                        <a href="#0"></a>
                       </div>
                       <h4 className="title">
-                        <Link href="/blog-details/blog-details-dark">
+                        <Link href="/">
                           <a>Build a Beautiful Blog With Ease</a>
                         </Link>
                       </h4>
@@ -43,7 +43,7 @@ const BlogStanderd = () => {
                         natural. However, things like people look miserable, if
                         these properties are connected.
                       </p>
-                      <Link href="/blog-details/blog-details-dark">
+                      <Link href="/">
                         <a className="simple-btn mt-30">Read More</a>
                       </Link>
                     </div>
@@ -52,7 +52,7 @@ const BlogStanderd = () => {
               </div>
               <div className="item mb-80">
                 <div className="img">
-                  <Link href="/blog-details/blog-details-dark">
+                  <Link href="/">
                     <a>
                       <img src="/img/blog/b2.jpg" alt="" />
                     </a>
@@ -71,7 +71,7 @@ const BlogStanderd = () => {
                         <a href="#0">Avo</a>
                       </div>
                       <h4 className="title">
-                        <Link href="/blog-details/blog-details-dark">
+                        <Link href="/">
                           <a>Build a Beautiful Blog With Ease</a>
                         </Link>
                       </h4>
@@ -84,7 +84,7 @@ const BlogStanderd = () => {
                         natural. However, things like people look miserable, if
                         these properties are connected.
                       </p>
-                      <Link href="/blog-details/blog-details-dark">
+                      <Link href="/">
                         <a className="simple-btn mt-30">Read More</a>
                       </Link>
                     </div>
@@ -93,7 +93,7 @@ const BlogStanderd = () => {
               </div>
               <div className="item mb-80">
                 <div className="img">
-                  <Link href="/blog-details/blog-details-dark">
+                  <Link href="/">
                     <a>
                       <img src="/img/blog/b3.jpg" alt="" />
                     </a>
@@ -112,7 +112,7 @@ const BlogStanderd = () => {
                         <a href="#0">Avo</a>
                       </div>
                       <h4 className="title">
-                        <Link href="/blog-details/blog-details-dark">
+                        <Link href="">
                           <a>Build a Beautiful Blog With Ease</a>
                         </Link>
                       </h4>
@@ -125,7 +125,7 @@ const BlogStanderd = () => {
                         natural. However, things like people look miserable, if
                         these properties are connected.
                       </p>
-                      <Link href="/blog-details/blog-details-dark">
+                      <Link href="">
                         <a className="simple-btn mt-30">Read More</a>
                       </Link>
                     </div>
@@ -134,7 +134,7 @@ const BlogStanderd = () => {
               </div>
               <div className="item">
                 <div className="img">
-                  <Link href="/blog-details/blog-details-dark">
+                  <Link href="/">
                     <a>
                       <img src="/img/blog/b4.jpg" alt="" />
                     </a>
@@ -153,7 +153,7 @@ const BlogStanderd = () => {
                         <a href="#0">Avo</a>
                       </div>
                       <h4 className="title">
-                        <Link href="/blog-details/blog-details-dark">
+                        <Link href="/">
                           <a>Build a Beautiful Blog With Ease</a>
                         </Link>
                       </h4>
@@ -166,7 +166,7 @@ const BlogStanderd = () => {
                         natural. However, things like people look miserable, if
                         these properties are connected.
                       </p>
-                      <Link href="/blog-details/blog-details-dark">
+                      <Link href="/">
                         <a className="simple-btn mt-30">Read More</a>
                       </Link>
                     </div>
@@ -192,7 +192,7 @@ const BlogStanderd = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default BlogStanderd;
+export default BlogStanderd

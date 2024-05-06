@@ -1,41 +1,41 @@
-import React from "react";
-import Link from "next/link";
-import introData from "../../data/sections/intro2.json";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Split from "../Split";
+import React from 'react'
+import Link from 'next/link'
+import introData from '../../data/sections/intro2.json'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import Split from '../Split'
 import SwiperCore, {
   Navigation,
   Pagination,
   Autoplay,
   EffectFade,
-} from "swiper";
+} from 'swiper'
 
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css/effect-fade";
-import fadeWhenScroll from "../../common/fadeWhenScroll";
-import removeSlashFromPagination from "../../common/removeSlashFromPagination";
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+import 'swiper/css/effect-fade'
+import fadeWhenScroll from '../../common/fadeWhenScroll'
+import removeSlashFromPagination from '../../common/removeSlashFromPagination'
 
-SwiperCore.use([Navigation, Pagination, Autoplay, EffectFade]);
+SwiperCore.use([Navigation, Pagination, Autoplay, EffectFade])
 
 const IntroWithSlider3 = () => {
-  const [load, setLoad] = React.useState(true);
+  const [load, setLoad] = React.useState(true)
   React.useEffect(() => {
-    fadeWhenScroll();
+    fadeWhenScroll()
     setTimeout(() => {
-      setLoad(false);
-      removeSlashFromPagination();
-    }, 1000);
-  }, []);
+      setLoad(false)
+      removeSlashFromPagination()
+    }, 1000)
+  }, [])
 
-  const navigationPrevRef = React.useRef(null);
-  const navigationNextRef = React.useRef(null);
-  const paginationRef = React.useRef(null);
+  const navigationPrevRef = React.useRef(null)
+  const navigationNextRef = React.useRef(null)
+  const paginationRef = React.useRef(null)
 
   return (
     <header className="slider-bus position-re valign">
-      <div className="container ontop">
+      <div className="ontop container">
         <div className="swiper-container parallax-slider">
           {!load ? (
             <Swiper
@@ -49,30 +49,30 @@ const IntroWithSlider3 = () => {
                 nextEl: navigationNextRef.current,
               }}
               pagination={{
-                type: "fraction",
+                type: 'fraction',
                 clickable: true,
                 el: paginationRef.current,
               }}
               onBeforeInit={(swiper) => {
-                swiper.params.navigation.prevEl = navigationPrevRef.current;
-                swiper.params.navigation.nextEl = navigationNextRef.current;
-                swiper.params.pagination.el = paginationRef.current;
+                swiper.params.navigation.prevEl = navigationPrevRef.current
+                swiper.params.navigation.nextEl = navigationNextRef.current
+                swiper.params.pagination.el = paginationRef.current
               }}
               onSwiper={(swiper) => {
                 setTimeout(() => {
-                  swiper.params.navigation.prevEl = navigationPrevRef.current;
-                  swiper.params.navigation.nextEl = navigationNextRef.current;
+                  swiper.params.navigation.prevEl = navigationPrevRef.current
+                  swiper.params.navigation.nextEl = navigationNextRef.current
 
-                  swiper.params.pagination.el = paginationRef.current;
+                  swiper.params.pagination.el = paginationRef.current
 
-                  swiper.navigation.destroy();
-                  swiper.navigation.init();
-                  swiper.navigation.update();
+                  swiper.navigation.destroy()
+                  swiper.navigation.init()
+                  swiper.navigation.update()
 
-                  swiper.pagination.destroy();
-                  swiper.pagination.init();
-                  swiper.pagination.update();
-                });
+                  swiper.pagination.destroy()
+                  swiper.pagination.init()
+                  swiper.pagination.update()
+                })
               }}
               className="swiper-wrapper"
               slidesPerView={1}
@@ -87,12 +87,8 @@ const IntroWithSlider3 = () => {
                             <div className="thin">Unique brand</div> Stories
                           </h1>
                         </Split>
-                        <p>
-                          If you need to redesign your new project, new visual
-                          strategy, ux structure or you do have some cool ideas
-                          for collaboration.
-                        </p>
-                        <Link href="/works3/works3-dark">
+                        {slide?.content && <p>{slide.content}</p>}
+                        <Link href="/">
                           <a className="btn-curve btn-color btn-radius mt-30">
                             <span>Discover Work</span>
                           </a>
@@ -120,56 +116,52 @@ const IntroWithSlider3 = () => {
               nextEl: navigationNextRef.current,
             }}
             pagination={{
-              type: "fraction",
+              type: 'fraction',
               clickable: true,
               el: paginationRef.current,
             }}
             onBeforeInit={(swiper) => {
-              swiper.params.navigation.prevEl = navigationPrevRef.current;
-              swiper.params.navigation.nextEl = navigationNextRef.current;
-              swiper.params.pagination.el = paginationRef.current;
+              swiper.params.navigation.prevEl = navigationPrevRef.current
+              swiper.params.navigation.nextEl = navigationNextRef.current
+              swiper.params.pagination.el = paginationRef.current
             }}
             onSwiper={(swiper) => {
               setTimeout(() => {
-                swiper.params.navigation.prevEl = navigationPrevRef.current;
-                swiper.params.navigation.nextEl = navigationNextRef.current;
+                swiper.params.navigation.prevEl = navigationPrevRef.current
+                swiper.params.navigation.nextEl = navigationNextRef.current
 
-                swiper.params.pagination.el = paginationRef.current;
+                swiper.params.pagination.el = paginationRef.current
 
-                swiper.navigation.destroy();
-                swiper.navigation.init();
-                swiper.navigation.update();
+                swiper.navigation.destroy()
+                swiper.navigation.init()
+                swiper.navigation.update()
 
-                swiper.pagination.destroy();
-                swiper.pagination.init();
-                swiper.pagination.update();
-              });
+                swiper.pagination.destroy()
+                swiper.pagination.init()
+                swiper.pagination.update()
+              })
             }}
             className="swiper-wrapper"
             slidesPerView={1}
           >
             <SwiperSlide
               className="swiper-slide bg-img"
-              style={{ backgroundImage: 'url("/img/slid/1.jpg")' }}
-              data-overlay-dark="6"
+              style={{ backgroundImage: 'url("/img/slid/01.jpg")' }}
+              data-overlay-="6"
             ></SwiperSlide>
             <SwiperSlide
               className="swiper-slide bg-img"
-              style={{ backgroundImage: 'url("/img/slid/2.jpg")' }}
-              data-overlay-dark="6"
+              style={{ backgroundImage: 'url("/img/slid/02.jpeg")' }}
+              data-overlay-="6"
             ></SwiperSlide>
             <SwiperSlide
               className="swiper-slide bg-img"
-              style={{ backgroundImage: 'url("/img/slid/3.jpg")' }}
-              data-overlay-dark="6"
+              style={{ backgroundImage: 'url("/img/slid/03.jpeg")' }}
+              data-overlay-="6"
             ></SwiperSlide>
           </Swiper>
         ) : null}
       </div>
-      <div
-        className="curve-bg bg-img"
-        style={{ backgroundImage: 'url("/img/business-bg.png")' }}
-      ></div>
 
       <div className="setone">
         <div
@@ -185,9 +177,8 @@ const IntroWithSlider3 = () => {
           <i className="fas fa-chevron-left"></i>
         </div>
       </div>
-      <div className="swiper-pagination custom-font" ref={paginationRef}></div>
     </header>
-  );
-};
+  )
+}
 
-export default IntroWithSlider3;
+export default IntroWithSlider3

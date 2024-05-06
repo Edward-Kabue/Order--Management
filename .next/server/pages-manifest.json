@@ -1,0 +1,21 @@
+{
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/about/about-light": "pages/about/about-light.html",
+  "/blog/blog-light": "pages/blog/blog-light.html",
+  "/contact/contact-light": "pages/contact/contact-light.html",
+  "/contentServices": "pages/contentServices.html",
+  "/digitalServices": "pages/digitalServices.html",
+  "/home/home1-light": "pages/home/home1-light.html",
+  "/": "pages/index.html",
+  "/portfolio/ourwork": "pages/portfolio/ourwork.html",
+  "/post/[slug]": "pages/post/[slug].js",
+  "/posts": "pages/posts.js",
+  "/services": "pages/services.html",
+  "/services/Services": "pages/services/Services.html",
+  "/services/digitalService": "pages/services/digitalService.html",
+  "/services/techServices": "pages/services/techServices.html",
+  "/techServices": "pages/techServices.html",
+  "/_error": "pages/_error.js",
+  "/404": "pages/404.html"
+}

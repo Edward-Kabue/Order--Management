@@ -1,30 +1,30 @@
-import React from "react";
-import LightTheme from "../../layouts/Light";
-import Navbar from "../../components/Navbar";
-import BlogStanderd from "../../components/Blog-standerd";
-import Footer from "../../components/Footer";
+import React from 'react'
+import LightTheme from '../../layouts/Light'
+import Navbar from '../../components/Navbar'
+import BlogStanderd from '../../components/Blog-standerd'
+import Footer from '../../components/Footer'
 
 const BlogLight = () => {
-  const navbarRef = React.useRef(null);
-  const logoRef = React.useRef(null);
+  const navbarRef = React.useRef(null)
+  const logoRef = React.useRef(null)
   React.useEffect(() => {
-    document.querySelector('body').classList.add('menubarblack');
-    
+    document.querySelector('body').classList.add('menubarblack')
+
     var navbar = navbarRef.current,
-      logo = logoRef.current;
+      logo = logoRef.current
     if (window.pageYOffset > 300) {
-      navbar.classList.add("nav-scroll");
+      navbar.classList.add('nav-scroll')
     } else {
-      navbar.classList.remove("nav-scroll");
+      navbar.classList.remove('nav-scroll')
     }
-    window.addEventListener("scroll", () => {
+    window.addEventListener('scroll', () => {
       if (window.pageYOffset > 300) {
-        navbar.classList.add("nav-scroll");
+        navbar.classList.add('nav-scroll')
       } else {
-        navbar.classList.remove("nav-scroll");
+        navbar.classList.remove('nav-scroll')
       }
-    });
-  }, [navbarRef]);
+    })
+  }, [navbarRef])
   return (
     <LightTheme>
       <Navbar nr={navbarRef} lr={logoRef} theme="themeL" />
@@ -45,7 +45,7 @@ const BlogLight = () => {
       <BlogStanderd />
       <Footer />
     </LightTheme>
-  );
-};
+  )
+}
 
-export default BlogLight;
+export default BlogLight

@@ -1,8 +1,8 @@
 const removeOverlay = () => {
-  let sectionWithOutOverlay = document.querySelectorAll("section.noOverlay");
+  let sectionWithOutOverlay = document.querySelectorAll('section.noOverlay');
   if (sectionWithOutOverlay) {
     sectionWithOutOverlay.forEach((section) =>
-      section.removeAttribute("data-overlay-dark")
+      section.removeAttribute('data-overlay-')
     );
   }
 };

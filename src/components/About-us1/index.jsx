@@ -7,18 +7,20 @@ const AboutUs1 = () => {
   return (
     <div className='about section-padding'>
       <div className='container'>
+        <div className='sec-head custom-font text-center'>
+          <h6 className='wow fadeIn' data-wow-delay='.5s'>
+            Who we are and what we do
+          </h6>
+          <Split>
+            <h3 className='wow words chars splitting' data-splitting>
+              About us
+            </h3>
+          </Split>
+          <span className='tbg'>About us</span>
+        </div>
         <div className='row'>
           <div className='col-lg-5 offset-lg-1 valign'>
             <div className='content'>
-              <div className='sub-title'>
-                <span></span>
-                <span></span>
-                <span></span>
-                <h6>{AboutUs1Date.smallTitle}</h6>
-              </div>
-              <div>
-                <p>Who we are and what we do</p>
-              </div>
               <Split>
                 <h3
                   className='words chars splitting main-title wow'
@@ -31,6 +33,11 @@ const AboutUs1 = () => {
                 <p className='words chars splitting wow txt' data-splitting>
                   {AboutUs1Date.content}
                 </p>
+              </Split>
+              <Split>
+                <h6 className='words chars splitting wow txt' data-splitting>
+                  {AboutUs1Date.method}
+                </h6>
               </Split>
               <div className='ftbox mt-30'>
                 <ul>

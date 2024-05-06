@@ -1,120 +1,106 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
-import { Formik, Form, Field } from 'formik';
-import appData from '../../data/app.json';
+import React from 'react'
+import { Formik, Form, Field } from 'formik'
+import appData from '../../data/app.json'
 
 const Footer = () => {
   function validateEmail(value) {
-    let error;
+    let error
     if (!value) {
-      error = 'Required';
+      error = 'Required'
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-      error = 'Invalid email address';
+      error = 'Invalid email address'
     }
-    return error;
+    return error
   }
-  const sendEmail = (ms) => new Promise((r) => setTimeout(r, ms));
+  const sendEmail = (ms) => new Promise((r) => setTimeout(r, ms))
   return (
-    <footer className='footer-half sub-bg section-padding pb-0'>
-      <div className='container'>
-        <div className='row'>
-          <div className='col-lg-5'>
-            <div className='cont'>
-              <div className='logo'>
-                <a href='#0'>
-                  <img src={`${appData.lightLogo}`} alt='' />
+    <footer className="footer-half sub-bg section-padding pb-0">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-5 ">
+            <div className="cont">
+              <div className="logo">
+                <a href="#0">
+                  <img src={`${appData.lightLogo}`} alt="" />
                 </a>
               </div>
-              <div className='con-info custom-font'>
-                <ul>
-                  <li>
-                    <span>Email : </span> Avo_support@website.com
-                  </li>
-                  <li>
-                    <span>Address : </span> A32 , Ave 15th Street, Door 211, San
-                    Franciso, USA 32490.
-                  </li>
-                  <li>
-                    <span>Phone : </span> (+1) 2345 678 44 88
-                  </li>
-                </ul>
+              <div className="con-info custom-font">
+                <p className="footer-text">
+                  Dimetech Group is a full-service digital and media content
+                  service provider based in Kenya. We combine creativity,
+                  technological trends, and strategic planning to help
+                  businesses flourish in this fast-paced digital era
+                </p>
               </div>
-              <div className='social-icon'>
-                <h6 className='custom-font stit simple-btn'>Follow Us</h6>
-                <div className='social'>
-                  <a href='#0' className='icon'>
-                    <i className='fab fa-facebook-f'></i>
+              <div className="social-icon">
+                <h6 className="custom-font stit simple-btn">Follow Us</h6>
+                <div className="social">
+                  <a href="#0" className="icon">
+                    <i className="fab fa-facebook-f"></i>
                   </a>
-                  <a href='#0' className='icon'>
-                    <i className='fab fa-twitter'></i>
+                  <a href="#0" className="icon">
+                    <i className="fab fa-twitter"></i>
                   </a>
-                  <a href='#0' className='icon'>
-                    <i className='fab fa-pinterest'></i>
+                  <a href="#0" className="icon">
+                    <i className="fab fa-pinterest"></i>
                   </a>
-                  <a href='#0' className='icon'>
-                    <i className='fab fa-behance'></i>
+                  <a href="#0" className="icon">
+                    <i className="fab fa-behance"></i>
                   </a>
                 </div>
               </div>
             </div>
           </div>
-          <div className='col-lg-5 offset-lg-2'>
-            <div className='subscribe mb-50'>
-              <h6 className='custom-font stit simple-btn'>Newslatter</h6>
-              <p>Sign up for subscribe out newsletter!</p>
-              <Formik
-                initialValues={{
-                  subscribe: '',
-                }}
-                onSubmit={async (values) => {
-                  await sendEmail(500);
-                  alert(JSON.stringify(values, null, 2));
-                  // Reset the values
-                  values.subscribe = '';
-                }}
-              >
-                {({ errors, touched }) => (
-                  <Form>
-                    <div className='form-group custom-font'>
-                      <Field
-                        validate={validateEmail}
-                        type='email'
-                        name='subscribe'
-                        placeholder='Your Email'
-                      />
-                      {errors.email && touched.email && (
-                        <div>{errors.email}</div>
-                      )}
-                      <button className='cursor-pointer'>Subscribe</button>
-                    </div>
-                  </Form>
-                )}
-              </Formik>
-            </div>
-            <div className='insta'>
-              <h6 className='custom-font stit simple-btn'>Instagram Post</h6>
-              <div className='insta-gallary'>
-                <a href='#0'>
-                  <img src='/img/insta/1.jpg' alt='' />
-                </a>
-                <a href='#0'>
-                  <img src='/img/insta/2.jpg' alt='' />
-                </a>
-                <a href='#0'>
-                  <img src='/img/insta/3.jpg' alt='' />
-                </a>
+          <div className="col-lg-5 offset-lg-2">
+            <div className="cont">
+              <div className="footer-title">
+                <h6>Where to find us</h6>
+              </div>
+              <div className="con-info custom-font">
+                <ul>
+                  <li>
+                    <span>Email : </span> contact@dimetechgroup.com
+                  </li>
+                  <li>
+                    <span>Address : </span> Banda Lane 92, Karen Nairobi, Kenya
+                  </li>
+                  <li>
+                    <span>Phone : </span> 020 2008807 / 0714254750
+                  </li>
+                </ul>
+              </div>
+              <div className="social-icon">
+                <h6 className="custom-font stit simple-btn">Follow Us</h6>
+                <div className="social">
+                  <a href="#0" className="icon">
+                    <i className="fab fa-facebook-f"></i>
+                  </a>
+                  <a href="#0" className="icon">
+                    <i className="fab fa-twitter"></i>
+                  </a>
+                  <a href="#0" className="icon">
+                    <i className="fab fa-pinterest"></i>
+                  </a>
+                  <a href="#0" className="icon">
+                    <i className="fab fa-behance"></i>
+                  </a>
+                  <a href="#0" className="icon">
+                    <i className="fab fa-instagram"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className='copyrights text-center'>
+        <div className="copyrights text-center">
           <p>
             <p>© 2016-2022, Dimetech group. All rights reserved.</p>
           </p>
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

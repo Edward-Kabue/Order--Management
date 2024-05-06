@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Reliability",
+    "icon": "pe-7s-gleam"
+  },
+  {
+    "id": 2,
+    "title": "Innovation ",
+    "icon": "pe-7s-phone"
+  },
+  {
+    "id": 3,
+    "title": "Teamwork",
+    "icon": "pe-7s-magic-wand"
+  },
+  {
+    "id": 3,
+    "title": "Scalability",
+    "icon": "pe-7s-magic-wand"
+  },
+  {
+    "id": 3,
+    "title": "Honesty and transparency",
+    "icon": "pe-7s-magic-wand"
+  },
+  {
+    "id": 3,
+    "title": "Sustainability",
+    "icon": "pe-7s-magic-wand"
+  }
+]

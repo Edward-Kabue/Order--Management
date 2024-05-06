@@ -1,16 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import ModalVideo from "react-modal-video";
-import "react-modal-video/css/modal-video.css";
+import React from 'react'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import ModalVideo from 'react-modal-video'
+import 'react-modal-video/css/modal-video.css'
 
 const VideoWithTestimonials = () => {
-  const [isOpen, setOpen] = React.useState(false);
+  const [isOpen, setOpen] = React.useState(false)
   React.useEffect(() => {
-    console.clear();
-  }, []);
+    console.clear()
+  }, [])
   const settings = {
     dots: true,
     infinite: true,
@@ -18,12 +18,12 @@ const VideoWithTestimonials = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-  };
+  }
   return (
     <section className="block-sec">
       <div
         className="background bg-img section-padding pb-0"
-        style={{ backgroundImage: `url(/img/slid/1.jpg)` }}
+        style={{ backgroundImage: `url(/img/slid/1.png)` }}
         data-overlay-dark="8"
       >
         <div className="container">
@@ -31,7 +31,7 @@ const VideoWithTestimonials = () => {
             <div className="col-lg-6">
               <div className="vid-area">
                 <div className="vid-icon">
-                  {typeof window !== "undefined" && (
+                  {typeof window !== 'undefined' && (
                     <ModalVideo
                       channel="vimeo"
                       autoplay
@@ -43,10 +43,10 @@ const VideoWithTestimonials = () => {
                   <a
                     className="vid"
                     onClick={(e) => {
-                      e.preventDefault();
-                      setOpen(true);
+                      e.preventDefault()
+                      setOpen(true)
                     }}
-                    href="https://vimeo.com/127203262"
+                    href="#"
                   >
                     <div className="vid-butn">
                       <span className="icon">
@@ -58,7 +58,7 @@ const VideoWithTestimonials = () => {
 
                 <div className="cont">
                   <h3 className="wow" data-splitting>
-                    So that&apos;s us. There&apos;s no other way to put it.
+                    Get to know us better
                   </h3>
                 </div>
               </div>
@@ -67,10 +67,10 @@ const VideoWithTestimonials = () => {
               <div className="testim-box">
                 <div className="head-box">
                   <h6 className="wow fadeIn" data-wow-delay=".5s">
-                    Our Clients
+                    What makes us diffrent
                   </h6>
                   <h4 className="wow fadeInLeft" data-wow-delay=".5s">
-                    What Client&apos;s Say?
+                    Why us ?
                   </h4>
                 </div>
                 <Slider
@@ -80,75 +80,17 @@ const VideoWithTestimonials = () => {
                 >
                   <div className="item">
                     <p>
-                      Nulla metus metus ullamcorper vel tincidunt sed euismod
-                      nibh volutpat velit class aptent taciti sociosqu ad
-                      litora.
+                      We guide you through the online cosmos and accompany you
+                      all through to your business goal. We help make you and
+                      your business visible. We share our knowledge with our
+                      customers without overburdening them. We communicate
+                      reliably and always at eye level. Binary code is our daily
+                      cup of tea. We help our customers to ensure that their
+                      messages get where they are supposed to get in the digital
+                      world. In the minds and hearts of people. There are many
+                      ways to achieve authentic digital visibility - we will
+                      guide you directly there! Talk to us today
                     </p>
-                    <div className="info">
-                      <div className="img">
-                        <div className="img-box">
-                          <img src="/img/clients/1.jpg" alt="" />
-                        </div>
-                      </div>
-                      <div className="cont">
-                        <div className="author">
-                          <h6 className="author-name custom-font">
-                            Alex Regelman
-                          </h6>
-                          <span className="author-details">
-                            Co-founder, Colabrio
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="item">
-                    <p>
-                      Nulla metus metus ullamcorper vel tincidunt sed euismod
-                      nibh volutpat velit class aptent taciti sociosqu ad
-                      litora.
-                    </p>
-                    <div className="info">
-                      <div className="img">
-                        <div className="img-box">
-                          <img src="/img/clients/2.jpg" alt="" />
-                        </div>
-                      </div>
-                      <div className="cont">
-                        <div className="author">
-                          <h6 className="author-name custom-font">
-                            Alex Regelman
-                          </h6>
-                          <span className="author-details">
-                            Co-founder, Colabrio
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="item">
-                    <p>
-                      Nulla metus metus ullamcorper vel tincidunt sed euismod
-                      nibh volutpat velit class aptent taciti sociosqu ad
-                      litora.
-                    </p>
-                    <div className="info">
-                      <div className="img">
-                        <div className="img-box">
-                          <img src="/img/clients/3.jpg" alt="" />
-                        </div>
-                      </div>
-                      <div className="cont">
-                        <div className="author">
-                          <h6 className="author-name custom-font">
-                            Alex Regelman
-                          </h6>
-                          <span className="author-details">
-                            Co-founder, Colabrio
-                          </span>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </Slider>
               </div>
@@ -157,7 +99,7 @@ const VideoWithTestimonials = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default VideoWithTestimonials;
+export default VideoWithTestimonials
