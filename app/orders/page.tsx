@@ -1,37 +1,24 @@
-/**
- * eslint-disable @next/next/no-img-element
- *
- * @format
- */
-
-/**
- * eslint-disable @next/next/no-img-element
- *
- * @format
- */
-
-/** @format */
+// eslint-disable-next-line @next/next/no-img-element
+// @format
 "use client";
 
 import { DataTable } from "@/components/DataTable";
 import { ColumnDef } from "@tanstack/react-table";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PageTitle from "@/components/PageTitle";
 import { cn } from "@/lib/utils";
+import { fetchWooCommerceOrders } from "@/lib/wooCommerceApi"; // Import the fetchWooCommerceOrders function
 
 type Props = {};
-type Payment = {
-  order: string;
+type Order = {
+  id: number;
   status: string;
-  lastOrder: string;
-  method: string;
+  date_created: string;
+  payment_method_title: string;
 };
 
-const columns: ColumnDef<Payment>[] = [
-  {
-    accessorKey: "order",
-    header: "Order"
-  },
+const columns: ColumnDef<Order>[] = [
+  { accessorKey: "id", header: "Order" },
   {
     accessorKey: "status",
     header: "Status",
@@ -39,124 +26,46 @@ const columns: ColumnDef<Payment>[] = [
       return (
         <div
           className={cn("font-medium w-fit px-4 py-2 rounded-lg", {
-            "bg-red-200": row.getValue("status") === "Pending",
-            "bg-orange-200": row.getValue("status") === "Processing",
-            "bg-green-200": row.getValue("status") === "Completed"
+            "bg-red-200": row.getValue("status") === "pending",
+            "bg-orange-200": row.getValue("status") === "processing",
+            "bg-green-200": row.getValue("status") === "completed",
           })}
         >
           {row.getValue("status")}
         </div>
       );
-    }
+    },
   },
-  {
-    accessorKey: "lastOrder",
-    header: "Last Order"
-  },
-  {
-    accessorKey: "method",
-    header: "Method"
-  }
-];
-
-const data: Payment[] = [
-  {
-    order: "ORD001",
-    status: "Pending",
-    lastOrder: "2023-01-15",
-    method: "Credit Card"
-  },
-  {
-    order: "ORD002",
-    status: "Processing",
-    lastOrder: "2023-02-20",
-    method: "PayPal"
-  },
-  {
-    order: "ORD003",
-    status: "Completed",
-    lastOrder: "2023-03-10",
-    method: "Stripe"
-  },
-  {
-    order: "ORD004",
-    status: "Pending",
-    lastOrder: "2023-04-05",
-    method: "Venmo"
-  },
-  {
-    order: "ORD005",
-    status: "Completed",
-    lastOrder: "2023-05-12",
-    method: "Bank Transfer"
-  },
-  {
-    order: "ORD006",
-    status: "Processing",
-    lastOrder: "2023-06-18",
-    method: "Apple Pay"
-  },
-  {
-    order: "ORD007",
-    status: "Completed",
-    lastOrder: "2023-07-22",
-    method: "Google Pay"
-  },
-  {
-    order: "ORD008",
-    status: "Pending",
-    lastOrder: "2023-08-30",
-    method: "Cryptocurrency"
-  },
-  {
-    order: "ORD009",
-    status: "Processing",
-    lastOrder: "2023-09-05",
-    method: "Alipay"
-  },
-  {
-    order: "ORD010",
-    status: "Completed",
-    lastOrder: "2023-10-18",
-    method: "WeChat Pay"
-  },
-  {
-    order: "ORD011",
-    status: "Pending",
-    lastOrder: "2023-11-25",
-    method: "Square Cash"
-  },
-  {
-    order: "ORD012",
-    status: "Completed",
-    lastOrder: "2023-12-08",
-    method: "Zelle"
-  },
-  {
-    order: "ORD013",
-    status: "Processing",
-    lastOrder: "2024-01-15",
-    method: "Stripe"
-  },
-  {
-    order: "ORD014",
-    status: "Completed",
-    lastOrder: "2024-02-20",
-    method: "PayPal"
-  },
-  {
-    order: "ORD015",
-    status: "Pending",
-    lastOrder: "2024-03-30",
-    method: "Credit Card"
-  }
+  { accessorKey: "date_created", header: "Last Order" },
+  { accessorKey: "payment_method_title", header: "Method" },
 ];
 
 export default function OrdersPage({}: Props) {
+  const [orders, setOrders] = useState<Order[]>([]);
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const response = await fetchWooCommerceOrders();
+        const orders = response.data.map((order: any) => ({
+          id: order.id,
+          status: order.status,
+          date_created: order.date_created,
+          payment_method_title: order.payment_method_title,
+        }));
+        setOrders(orders);
+      } catch (error) {
+        console.error("Error fetching orders:", error);
+      }
+    };
+
+    fetchOrders();
+  }, []);
+
   return (
-    <div className="flex flex-col gap-5  w-full">
+    <div className="flex flex-col gap-5 w-full">
       <PageTitle title="Orders" />
-      <DataTable columns={columns} data={data} />
+      <DataTable columns={columns} data={orders} />
     </div>
   );
 }
