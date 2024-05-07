@@ -1,48 +1,104 @@
-"use client"; // This line tells Next.js that this is a Client Component
+import PageTitle from '@/components/PageTitle'
+import React from 'react'
+import Card, { CardContent, CardProps } from "@/components/Card";
+import { DollarSign, Users, CreditCard, Activity } from "lucide-react";
+import SalesCard, { SalesProps } from '@/components/SalesCard';
+import BarChart from '@/components/BarChart';
 
 
-import { fetchWooCommerceProducts } from "@/utils/wooCommerceApi";
-import { Product, Variation } from "@/utils/wooCommerceTypes";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+const cardData: CardProps[] = [
+  {
+    label: "Total Revenue",
+    amount: "$45,231.89",
+    description: "+20.1% from last month",
+    icon: DollarSign
+  },
+  {
+    label: "Subscriptions",
+    amount: "+2350",
+    description: "+180.1% from last month",
+    icon: Users
+  },
+  {
+    label: "Sales",
+    amount: "+12,234",
+    description: "+19% from last month",
+    icon: CreditCard
+  },
+  {
+    label: "Active Now",
+    amount: "+573",
+    description: "+201 since last hour",
+    icon: Activity
+  }
+];
+const userSalesData: SalesProps[] = [
+  {
+    name: "Olivia Martin",
+    email: "olivia.martin@email.com",
+    saleAmount: "+$1,999.00"
+  },
+  {
+    name: "Jackson Lee",
+    email: "isabella.nguyen@email.com",
+    saleAmount: "+$1,999.00"
+  },
+  {
+    name: "Isabella Nguyen",
+    email: "isabella.nguyen@email.com",
+    saleAmount: "+$39.00"
+  },
+  {
+    name: "William Kim",
+    email: "will@email.com",
+    saleAmount: "+$299.00"
+  },
+  {
+    name: "Sofia Davis",
+    email: "sofia.davis@email.com",
+    saleAmount: "+$39.00"
+  }
+];
 
-// import { fetchWooCommerceProducts } from "@/utils/wooCommerceApi";
 
 export default function Home() {
-  const [products, setProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetchWooCommerceProducts();
-        setProducts(response.data);
-        
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
-  
   return (
-    <ul>
-    {products.map((product) => (
-      <li key={product.id}>
-        <h2>{product.name}</h2>
-        {product.images.length > 0 && (
-          <img
-            src={product.images[0].src}
-            alt={product.images[0].alt}
-            width={200}
-            height={200}
+    <div className="flex flex-col gap-5  w-full">
+    <PageTitle title="Dashboard"/>
+    <section className="grid w-full grid-cols-1 gap-4 gap-x-8 transition-all sm:grid-cols-2 xl:grid-cols-4">
+        {cardData.map((d, i) => (
+          <Card
+            key={i}
+            amount={d.amount}
+            description={d.description}
+            icon={d.icon}
+            label={d.label}
           />
-        )}
-    
-      </li>
-    ))}
+        ))}
+      </section>
+      <section className="grid grid-cols-1  gap-4 transition-all lg:grid-cols-2">
+        <CardContent>
+          <p className="p-4 font-semibold">Overview</p>
 
-  </ul>
-  );
+          <BarChart />
+        </CardContent>
+        <CardContent className="flex justify-between gap-4">
+          <section>
+            <p>Recent Sales</p>
+            <p className="text-sm text-gray-400">
+              You made 265 sales this month.
+            </p>
+          </section>
+          {userSalesData.map((d, i) => (
+            <SalesCard
+              key={i}
+              email={d.email}
+              name={d.name}
+              saleAmount={d.saleAmount}
+            />
+          ))}
+        </CardContent>
+        </section>
+    </div>
+  )
 }
