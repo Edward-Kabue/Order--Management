@@ -9,6 +9,7 @@ import PageTitle from "@/components/PageTitle";
 import { cn } from "@/lib/utils";
 import { fetchWooCommerceProducts } from "@/lib/wooCommerceApi";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 type Product = {
@@ -34,7 +35,7 @@ const columns: ColumnDef<Product>[] = [
           <img
             src={product.image.src}
             alt={product.name}
-            className="w-20 h-auto object-cover rounded"
+            className="w-10 h-10 object-cover rounded"
           />
         </div>
       );
@@ -73,12 +74,15 @@ const columns: ColumnDef<Product>[] = [
 ];
 
 export default function ProductsPage({}: Props) {
+  const router = useRouter();
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const actions = (row: any) => (
+  const actions = (product: Product) => (
     <div>
-      <Button onClick={() => handleEdit(row)}>Edit</Button>
-      <Button onClick={() => handleDelete(row)}>Delete</Button>
+      <Button onClick={() => router.push(`/products/${product.id}`)}>
+        Edit
+      </Button>
+      <Button onClick={() => handleDelete(product)}>Delete</Button>
     </div>
   );
   useEffect(() => {
@@ -109,7 +113,7 @@ export default function ProductsPage({}: Props) {
   }, []);
 
   return (
-    <div className="flex flex-col gap-5 w-full">
+    <div className="flex flex-col  w-full">
       <PageTitle title="Products" />
       {isLoading ? (
         <div className="flex justify-center items-center pt-10">

@@ -12,7 +12,7 @@ const api = new WooCommerceRestApi({
 export async function fetchWooCommerceProducts() {
   try {
     const response = await api.get("products", {
-      per_page: 100, // 20 products per page
+      per_page: 100,
     });
     return response;
   } catch (error: any) {
@@ -26,6 +26,26 @@ export async function fetchWooCommerceOrders() {
     const response = await api.get("orders", {
       status: "completed",
     });
+    return response;
+  } catch (error: any) {
+    throw new Error((error as Error).message);
+  }
+}
+//fetch product variation details
+export async function fetchWooCommerceProductVariations(productId: number) {
+  try {
+    const response = await api.get(`products/${productId}/variations`, {
+      per_page: 100,
+    });
+    return response;
+  } catch (error: any) {
+    throw new Error((error as Error).message);
+  }
+}
+//fetch product details
+export async function fetchWooCommerceProduct(productId: number) {
+  try {
+    const response = await api.get(`products/${productId}`);
     return response;
   } catch (error: any) {
     throw new Error((error as Error).message);
