@@ -20,6 +20,7 @@ model User {
   image     String?
   role      Role     @default(USER)
   bookmarks Link[]
+  projects  Project[]
 }
 
 enum Role {
@@ -37,4 +38,31 @@ model Link {
   imageUrl    String
   category    String
   users      User[]
+}
+model Project {
+  id                 Int      @id @default(autoincrement())
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  orderId            String   @unique
+  customerName       String
+  customerEmail      String
+  customerPhone      String?
+  customerAddress    String?
+  orderTotal         Decimal
+  orderCurrency      String
+  orderItems         Json
+  status             ProjectStatus @default(PENDING)
+  assignedTo         User?    @relation(fields: [assignedToId], references: [id])
+  assignedToId       Int?
+  notes              String?
+  completionDate     DateTime?
+  
+  @@map("projects")
+}
+
+enum ProjectStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELED
 }
