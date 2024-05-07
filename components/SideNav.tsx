@@ -11,7 +11,8 @@ import {
   LayoutDashboard,
   UsersRound,
   Settings,
-  ChevronRight
+  ChevronRight,
+  Layers
 } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -62,9 +63,9 @@ export default function SideNav({}: Props) {
             variant: "ghost"
           },
           {
-            title: "Settings",
-            href: "/settings",
-            icon: Settings,
+            title: "Products",
+            href: "/products",
+            icon: Layers,
             variant: "ghost"
           }
         ]}

@@ -1,5 +1,4 @@
 /** @format */
-
 "use client";
 
 import {
@@ -7,33 +6,35 @@ import {
   flexRender,
   getCoreRowModel,
   getPaginationRowModel,
-  useReactTable
+  useReactTable,
 } from "@tanstack/react-table";
-
 import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
+  TableRow,
 } from "@/components/ui/table";
 import { Button } from "./ui/button";
+import React from "react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  actions?: (row: TData) => React.ReactNode;
 }
 
 export function DataTable<TData, TValue>({
   columns,
-  data
+  data,
+  actions,
 }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel()
+    getPaginationRowModel: getPaginationRowModel(),
   });
 
   return (
@@ -55,6 +56,7 @@ export function DataTable<TData, TValue>({
                     </TableHead>
                   );
                 })}
+                {actions && <TableHead>Actions</TableHead>}
               </TableRow>
             ))}
           </TableHeader>
@@ -73,12 +75,18 @@ export function DataTable<TData, TValue>({
                       )}
                     </TableCell>
                   ))}
+                  {actions && (
+                    <TableCell>
+                      {actions(row.original)}{" "}
+                      {/* Render the actions for the row */}
+                    </TableCell>
+                  )}
                 </TableRow>
               ))
             ) : (
               <TableRow>
                 <TableCell
-                  colSpan={columns.length}
+                  colSpan={columns.length + (actions ? 1 : 0)}
                   className="h-24 text-center"
                 >
                   No results.

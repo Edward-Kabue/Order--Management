@@ -3,8 +3,8 @@ import { env } from "process";
 // initialise the WooCommerceRestApi //
 const api = new WooCommerceRestApi({
   url: "https://89graphics.com/",
-  consumerKey: process.env.NEXT_PUBLIC_WOOCOMMERCE_KEY || '',
-  consumerSecret: process.env.NEXT_PUBLIC_WOOCOMMERCE_SECRET || '',
+  consumerKey: process.env.NEXT_PUBLIC_WOOCOMMERCE_KEY || "",
+  consumerSecret: process.env.NEXT_PUBLIC_WOOCOMMERCE_SECRET || "",
   version: "wc/v3",
 });
 
@@ -12,7 +12,7 @@ const api = new WooCommerceRestApi({
 export async function fetchWooCommerceProducts() {
   try {
     const response = await api.get("products", {
-      per_page: 20, // 20 products per page
+      per_page: 100, // 20 products per page
     });
     return response;
   } catch (error: any) {
