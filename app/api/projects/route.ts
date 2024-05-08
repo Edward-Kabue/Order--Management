@@ -1,11 +1,9 @@
-// app/projects/page.tsx
-import { PrismaClient, Project } from "@prisma/client";
-import { Suspense } from "react";
-import ProjectsTable from "./ProjectsTable";
+import { PrismaClient } from "@prisma/client/extension";
 
+//fetch all projects
 const projects = new PrismaClient();
 
-export async function GET() {
+export async function GET(request: any) {
   try {
     const response = await projects.project.findMany();
     return new Response(JSON.stringify(response), {
@@ -23,18 +21,4 @@ export async function GET() {
       },
     });
   }
-}
-
-export default async function ProjectsPage() {
-  const response = await GET();
-  const projects: Project[] = await response.json();
-
-  return (
-    <div>
-      <h1>Projects</h1>
-      <Suspense fallback={<div>Loading...</div>}>
-        <ProjectsTable projects={projects} />
-      </Suspense>
-    </div>
-  );
 }
