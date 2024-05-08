@@ -1,41 +1,49 @@
-/** @format */
 "use client";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Nav } from "./ui/nav";
-
-type Props = {};
-
 import {
   ShoppingCart,
   LayoutDashboard,
   UsersRound,
   Settings,
   ChevronRight,
-  Layers
+  Layers,
 } from "lucide-react";
 import { Button } from "./ui/button";
-
-import { useWindowWidth } from "@react-hook/window-size";
+type Props = {};
 
 export default function SideNav({}: Props) {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [mobileWidth, setMobileWidth] = useState(false);
 
-  const onlyWidth = useWindowWidth();
-  const mobileWidth = onlyWidth < 768;
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setMobileWidth(window.innerWidth < 768);
+    };
+
+    // Check for window object to avoid server-side rendering issues
+    if (typeof window !== "undefined") {
+      handleWindowResize();
+      window.addEventListener("resize", handleWindowResize);
+    }
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
 
   function toggleSidebar() {
     setIsCollapsed(!isCollapsed);
   }
 
   return (
-    <div className="relative min-w-[80px] border-r px-3  pb-10 pt-24 ">
+    <div className="relative min-w-[80px] border-r px-3 pb-10 pt-24">
       {!mobileWidth && (
         <div className="absolute right-[-20px] top-7">
           <Button
             onClick={toggleSidebar}
             variant="secondary"
-            className=" rounded-full p-2"
+            className="rounded-full p-2"
           >
             <ChevronRight />
           </Button>
@@ -48,26 +56,26 @@ export default function SideNav({}: Props) {
             title: "Dashboard",
             href: "/",
             icon: LayoutDashboard,
-            variant: "default"
+            variant: "default",
           },
           {
             title: "Users",
             href: "/users",
             icon: UsersRound,
-            variant: "ghost"
+            variant: "ghost",
           },
           {
             title: "Orders",
             href: "/orders",
             icon: ShoppingCart,
-            variant: "ghost"
+            variant: "ghost",
           },
           {
             title: "Products",
             href: "/products",
             icon: Layers,
-            variant: "ghost"
-          }
+            variant: "ghost",
+          },
         ]}
       />
     </div>

@@ -81,13 +81,11 @@ export default function ProductDetails() {
                   return (
                     <div key={attribute.id}>
                       {attribute.name}: {attribute.option},
-                      <p>price{attribute.price}</p>
                     </div>
                   );
                 },
                 []
               )}
-              {variation.price},
             </p>
           );
         },
