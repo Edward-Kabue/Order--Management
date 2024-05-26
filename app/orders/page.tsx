@@ -7,15 +7,9 @@ import { ColumnDef } from "@tanstack/react-table";
 import React, { useState, useEffect } from "react";
 import PageTitle from "@/components/PageTitle";
 import { cn } from "@/lib/utils";
-import { fetchWooCommerceOrders } from "@/lib/wooCommerceApi"; // Import the fetchWooCommerceOrders function
-
+import { fetchWooCommerceOrders } from "@/lib/wooCommerceApi";
+import { Order } from "@/lib/wooCommerceTypes";
 type Props = {};
-type Order = {
-  id: number;
-  status: string;
-  date_created: string;
-  payment_method_title: string;
-};
 
 const columns: ColumnDef<Order>[] = [
   { accessorKey: "id", header: "Order" },
@@ -36,8 +30,10 @@ const columns: ColumnDef<Order>[] = [
       );
     },
   },
-  { accessorKey: "date_created", header: "Last Order" },
+
   { accessorKey: "payment_method_title", header: "Method" },
+  { accessorKey: "files", header: "Files" },
+  { accessorKey: "actions", header: "Actions" },
 ];
 
 export default function OrdersPage({}: Props) {
@@ -50,12 +46,20 @@ export default function OrdersPage({}: Props) {
         const orders = response.data.map((order: any) => ({
           id: order.id,
           status: order.status,
-          date_created: order.date_created,
+
           payment_method_title: order.payment_method_title,
+          files: order.line_items.map((item: any) => item.image.src),
         }));
+        console.log(
+          "Orders:",
+          response.data.map((order: any) =>
+            order.line_items.map((item: any) => item.image)
+          )
+        );
         setOrders(orders);
       } catch (error) {
-        console.error("Error fetching orders:", error);
+        //return no results found;
+        return <div>No results found</div>;
       }
     };
 
@@ -65,6 +69,7 @@ export default function OrdersPage({}: Props) {
   return (
     <div className="flex flex-col gap-5 w-full">
       <PageTitle title="Orders" />
+
       <DataTable columns={columns} data={orders} />
     </div>
   );
